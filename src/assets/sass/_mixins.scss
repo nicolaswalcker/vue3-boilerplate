@@ -1,0 +1,68 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+// ==========================================================================
+// Mixins
+// ==========================================================================
+@mixin reset-button() {
+  & {
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+}
+
+@mixin border-style($border-size) {
+  & {
+    border: $border-size solid;
+    border-image: linear-gradient(225deg, $blue 0%, $dark-100 100%) 1;
+    border-image-source:
+      linear-gradient(
+        225deg,
+        rgba(120, 94, 240, 1) 0%,
+        rgba(10, 10, 10, 1) 100%
+      );
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    transition: 0.3s all ease;
+  }
+
+  &:hover {
+    border-image: linear-gradient(450deg, $blue 0%, $dark-100 100%) 1;
+  }
+}
+
+@mixin buttonConfig($translate) {
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  content: '';
+  background: $white;
+  transition: 0.2s all ease;
+  transform: translateY($translate);
+}
+
+@mixin hover-effect() {
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: -5%;
+    width: 0;
+    height: 10px;
+    background: $blue;
+    z-index: -1;
+    overflow: hidden;
+    transition: all 0.4s $transition-function-ease-in-out-quint;
+  }
+
+  &:hover::before {
+    width: 110%;
+  }
+}
