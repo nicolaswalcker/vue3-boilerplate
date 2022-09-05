@@ -16,10 +16,10 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import '@/assets/sass/normalize';
+          @import '@/assets/sass/transitions';
           @import '@/assets/sass/variables';
           @import '@/assets/sass/colors';
           @import '@/assets/sass/breakpoints';
-          @import '@/assets/sass/global';
           @import '@/assets/sass/keyframes';
           @import '@/assets/sass/mixins';
           @import '@/assets/sass/utils';

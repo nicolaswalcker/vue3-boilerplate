@@ -24,6 +24,7 @@ import { RouterLink } from 'vue-router';
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 
   &__logo {
     height: 3rem;

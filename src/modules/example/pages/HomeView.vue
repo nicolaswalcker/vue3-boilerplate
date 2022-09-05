@@ -6,6 +6,7 @@ import { useCounterStore } from '@/store/modules/example';
 import { usePokemonStore } from '@/store/modules/pokemon';
 
 const welcome = ref('Boilerplate Vue 3 + Vite + TypeScript + Pinia');
+const show = ref(false);
 
 // Instance to store
 const main = useCounterStore();
@@ -30,5 +31,18 @@ onMounted(() => pokemon.getPokemons());
   <button @click="increment">Increment</button>
   <button @click="reset">Reset store</button>
 
+  <button @click="show = !show">Toggle</button>
+  <article>
+    <Transition name="slide-fade">
+      <p v-if="show">Hello</p>
+    </Transition>
+  </article>
+
   <div v-for="(poke, i) of pokemonsName" :key="i">{{ poke }}</div>
 </template>
+
+<style scoped lang="scss">
+article {
+  @include vue-transition(slide-fade);
+}
+</style>
